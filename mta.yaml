@@ -1,0 +1,28 @@
+_schema-version: "2.1"
+ID: hdi_hanabasic
+version: 0.0.1
+modules:
+- name: dbtest
+  type: hdb
+  path: dbtest
+  requires:
+  - name: hdi_hanabasic #Changed the name
+    properties:
+      TARGET_CONTAINER: ~{hdi-container-name}
+  - name: USP_ABAP
+
+resources:
+- name: hdi_hanabasic  #Changed the name
+  type: com.sap.xs.hdi-container
+  parameters:
+    config:
+      schema: hdi_hanabasic
+  properties:
+    hdi-container-name: ${service-name}
+    
+- name: USP_ABAP
+  type: org.cloudfoundry.existing-service
+  parameters:
+    service-name: USP_ABAP
+    config:
+      makeuniquename: false

@@ -1,0 +1,15 @@
+{
+    "role": {
+        "name": "com.hdibasics::hdiaccess",
+        "schema_privileges": [
+            {
+                "privileges": [
+                    "SELECT",
+                    "SELECT CDS METADATA",
+                    "UPDATE",
+                    "EXECUTE"
+                ]
+            }
+        ]
+    }
+}
